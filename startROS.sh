@@ -21,5 +21,5 @@ fi
 if [ $? -ne 0 ]
 then
 #/opt/ros/indigo/bin/roslaunch metatron_id metatron_id.launch &
-~/metatron/scripts/start-twoflower.sh &
+~/metatron/scripts/start-metatron.sh &
 fi

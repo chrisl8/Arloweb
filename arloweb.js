@@ -37,6 +37,7 @@
 
 var connectedToROS = false, // Track my opinion of the connection
     connectRequested = false, // For when we asked and are waiting patiently.
+    pleaseWait = false, // Display Please Wait on the Connect button
     ros, // Empty global for actual connection.
     cmdVel, // Empty global for actual topic
     wakeScreen, // Empty global for actual topic
@@ -147,7 +148,11 @@ var connectButtonHovered = false;
 var updateConnectedButton = function () {
     'use strict'; // http://www.w3schools.com/js/js_strict.asp
     var $connectButton = $('#connectButton-li');
-    if (connectedToROS) {
+    if (pleaseWait) {
+        $('span#connectText').html("PLEASE WAIT");
+        $connectButton.css('background-color', '#BBAA55');
+        $connectButton.css('letter-spacing', '1px');
+    } else if (connectedToROS) {
         if (connectButtonHovered) {
             $connectButton.css('background-color', '#882211');
             $('span#connectText').html("STOP ROS?");
@@ -157,19 +162,13 @@ var updateConnectedButton = function () {
             $connectButton.css('letter-spacing', '1px');
         }
     } else {
-        if (connectRequested) {
-            $('span#connectText').html("PLEASE WAIT");
-            $connectButton.css('background-color', '#BBAA55');
-            $connectButton.css('letter-spacing', '1px');
+        if (connectButtonHovered) {
+            $connectButton.css('background-color', '#5599FF');
+            $('span#connectText').html("START ROS?");
         } else {
-            if (connectButtonHovered) {
-                $connectButton.css('background-color', '#5599FF');
-                $('span#connectText').html("START ROS?");
-            } else {
-                $('span#connectText').html("NO CONNECTION");
-                $connectButton.css('background-color', '#FF9900');
-                $connectButton.css('letter-spacing', '0');
-            }
+            $('span#connectText').html("NO CONNECTION");
+            $connectButton.css('background-color', '#FF9900');
+            $connectButton.css('letter-spacing', '0');
         }
     }
 };
@@ -180,26 +179,27 @@ $(function () {
 
     // CONNECTION BUTTON
     $('#connectButton-li').on("mousedown touchstart", function () {
-        if (connectedToROS) {
+        if (pleaseWait) {
+            $(this).addClass("pressOnButton");
+            updateConnectedButton();
+        } else if (connectedToROS) {
             $(this).removeClass("lightUpButton");
             $(this).addClass("pressOnButton");
-            // Set connectRequested even on disconnect to hold button hostage for a while.
-            connectRequested = true;
             $.get('stopROS.php', function (data) {
                 setActionField(data);
             });
-        } else if (!connectRequested) {
-            $(this).removeClass("lightUpButton");
-            $(this).addClass("pressOnButton");
-            connectRequested = true;
-            $.get('startROS.php');
-            console.log("tail -f /opt/lampp/logs/error_log # To see what ROS is doing.");
-            setActionField("ROS Startup");
-            //window.location.href = "./standbyforROS.php";
+            pleaseWait = true;
+            setTimeout(setConnectRequestedFalse, 30000);
+            updateConnectedButton();
         } else {
             $(this).removeClass("lightUpButton");
             $(this).addClass("pressOnButton");
-            $('span#connectText').html("PLEASE WAIT");
+            $.get('startROS.php');
+            console.log("tail -f /opt/lampp/logs/error_log # To see what ROS is doing.");
+            setActionField("ROS Startup");
+            pleaseWait = true;
+            setTimeout(setConnectRequestedFalse, 45000);
+            updateConnectedButton();
         }
     })
     .on("mouseup mouseout touchend", function () {
@@ -1105,6 +1105,8 @@ var checkROSServices = function () {// Check for all of the VITAL startups
 var setConnectRequestedFalse = function() {
     'use strict';
     connectRequested = false;
+    pleaseWait = false;
+    updateConnectedButton();
 };
 
 var pollROS = function () {
@@ -1117,7 +1119,7 @@ var pollROS = function () {
 
     ros.on('connection', function () {
         setActionField('Websocket connected.');
-        connectRequested = true;
+        //connectRequested = true;
         updateConnectedButton();
         checkROSServices();
     });
@@ -1134,8 +1136,6 @@ var pollROS = function () {
         //console.log('Connection to websocket server closed.');
         setActionField('Websocket closed');
         connectedToROS = false;
-        //Give it a delay to prevent the button from "flapping" while the connection comes up.
-        setTimeout(setConnectRequestedFalse, 30000);
         updateConnectedButton();
         setTimeout(pollROS, shortDelay);
     });
