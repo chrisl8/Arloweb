@@ -28,463 +28,464 @@
  @red: #882211;
  */
 @font-face {
-	/* This declaration targets Internet Explorer */
-	font-family: 'lcars_font';
-	src: url('lcars-webfont.eot');
+    /* This declaration targets Internet Explorer */
+    font-family: 'lcars_font';
+    src: url('lcars-webfont.eot');
 }
+
 @font-face {
-	/* This declaration targets everything else */
-	font-family: 'lcars_font';
-	src: url(//:) format('no404'), url('lcars-webfont.woff') format('woff'), url('lcars-webfont.ttf') format('truetype'), url('lcars-webfont.svg#webfontMzhP0WIg') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    /* This declaration targets everything else */
+    font-family: 'lcars_font';
+    src: url(//:) format('no404'), url('lcars-webfont.woff') format('woff'), url('lcars-webfont.ttf') format('truetype'), url('lcars-webfont.svg#webfontMzhP0WIg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html, body {
-	/* Text Selection turned off to make it more like a user interface!
-	 http://stackoverflow.com/questions/12315476/how-to-disable-selection-of-text-on-a-web-page */
-	-webkit-user-select: none;
-	-moz-user-select: -moz-none;
-	-ms-user-select: none;
-	/*          user-select: none; /* May be deprecated? Does not validate*/
-	background-color: #000;
-	color: #fff;
-	margin: 0;
-	padding: 0;
-	font-family: lcars_font;
-	font-size: 25px;
-	font-weight: normal;
-	/* Prevents double scroll bars */
-	/* syle="ovrerflow: hidden" will prevent any scroll bars on the browser. */
-	overflow: hidden;
-	/* This helps to make the text easy to read. */
-	letter-spacing: 1px;
+    /* Text Selection turned off to make it more like a user interface!
+     http://stackoverflow.com/questions/12315476/how-to-disable-selection-of-text-on-a-web-page */
+    /* Note this is a non-standard property, using at my own risk. */
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: lcars_font;
+    font-size: 25px;
+    font-weight: normal;
+    /* Prevents double scroll bars */
+    /* syle="ovrerflow: hidden" will prevent any scroll bars on the browser. */
+    overflow: hidden;
+    /* This helps to make the text easy to read. */
+    letter-spacing: 1px;
 }
+
 h1 {
-	font-weight: normal;
-	margin: 0;
+    font-weight: normal;
 	padding: 0;
-	margin-top: -8px;
-	margin-bottom: -10px;
-}
-h2 {
-	font-size: 35px;
-	font-weight: normal;
-	margin: 0;
-	padding: 0;
-}
-h3 {
-	font-size: 30px;
-	font-weight: normal;
-	margin: 0;
-	padding: 0;
+	margin: -8px 0 -10px;
 }
 
 a:link, a:visited {
-	color: #aaF;
-	text-decoration: none;
+    color: #aaF;
+    text-decoration: none;
 }
+
 a:hover {
-	color: #66F;
-	text-decoration: none;
-	/* No hand pointer, to make it look more like an app or interface */
-	cursor: default;
+    color: #66F;
+    text-decoration: none;
+    /* No hand pointer, to make it look more like an app or interface */
+    cursor: default;
 }
 
 /* LINE STYLEING */
 .line-middle {
-	width: 100%;
-	height: 50px;
-	top: 0;
-	left: 0;
-	margin: 0;
-	background-color: transparent;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: transparent;
 }
+
 .line-middle .top {
-	height: 25px;
-	width: 100%;
-	margin: 0;
-	background-image: url(line.png);
-	background-repeat: no-repeat;
-	background-position: 0 0;
+    height: 25px;
+    width: 100%;
+    margin: 0;
+	background: url(line.png) no-repeat 0 0;
 }
+
 .line-middle .bottom {
-	height: 25px;
-	width: 100%;
-	margin: 0;
-	background-image: url(line.png);
-	background-repeat: no-repeat;
-	background-position: 0 -31px;
+    height: 25px;
+    width: 100%;
+    margin: 0;
+	background: url(line.png) no-repeat 0 -31px;
 }
+
 /* // LINE STYLEING */
 
 /* CONTENT AND SIDE PANELS */
 #up-header {
-	margin: 0;
-	padding: 0;
-	float: right;
-	text-align: right;
+    margin: 0;
+    padding: 0;
+    float: right;
+    text-align: right;
 }
+
 #up-header h1 {
-	color: #5599FF;
+    color: #5599FF;
 }
+
 #up-text {
-	margin: 0;
-	padding: 0;
-	text-align: left;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
+
 #up-text p {
-	margin: 0 10px;
-	padding: 0;
-	color: #BB4411;
+    margin: 0 10px;
+    padding: 0;
+    color: #BB4411;
 }
-#content h3 {
-	color: #BBAA55;
+
+#data-table {
+    margin: 10px;
 }
-#content h2 {
-	color: #BB4411;
-}
+
 .content {
-	background: transparent;
-	position: relative;
-	margin: 0;
-	padding: 0;
-}
-.upper-content {
-	width: auto;
-	height: auto;
-	overflow: auto;
-	background: transparent;
-	float: left;
-	position: relative;
-}
-.upper-side-panel {
-	color: black;
-	width: 87px;
-	background: transparent;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	float: left;
+    background: transparent;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
 
-.upper-side-panel li {
-	height: auto;
-	width: 100%;
-	text-align: right;
-	border-bottom: 2px solid black;
-	margin: 0;
-	padding: 0;
+#upper-row {
+    display: flex;
 }
 
-.upper-side-panel a {
-	color: black;
-	text-decoration: none;
-	font-family: lcars_font;
-	font-size: 15px;
-	font-size: 20px;
-}
-.lower-side-panel {
-	color: black;
-	width: 87px;
-	background: transparent;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	float: left;
+#lower-row {
+    display: flex;
+    flex-wrap: nowrap;
 }
 
-.lower-side-panel li {
-	height: auto;
-	width: 100%;
-	text-align: right;
-	border-bottom: 2px solid black;
-	margin: 0;
-	padding: 0;
+#upper-button-column {
+    background: #3366FF;
+    width: 87px;
+    min-width: 87px;
 }
 
-.lower-side-panel a {
-	color: black;
-	text-decoration: none;
-	font-family: lcars_font;
-	font-size: 15px;
-	font-size: 20px;
+#lower-button-column {
+    background-color: rgb(204, 221, 255);
+    width: 87px;
+    min-width: 87px;
 }
-#upper-content, table {
-	color: #5599ff;
+
+#upper-side-panel {
+    color: black;
+    width: 87px;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    float: left;
 }
+
+#upper-side-panel li {
+    height: auto;
+    width: 100%;
+    text-align: right;
+    border-bottom: 2px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+#upper-side-panel a {
+    color: black;
+    text-decoration: none;
+    font-family: lcars_font;
+    font-size: 20px;
+}
+
+#lower-side-panel {
+    color: black;
+    width: 87px;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    float: left;
+}
+
+#lower-side-panel li {
+    height: auto;
+    width: 100%;
+    text-align: right;
+    border-bottom: 2px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+#lower-side-panel a {
+    color: black;
+    text-decoration: none;
+    font-family: lcars_font;
+    font-size: 20px;
+}
+
+#upper-content {
+    color: #5599ff;
+    width: 100%;
+}
+
+#lower-content {
+    margin: 10px;
+    min-width: 430px;
+}
+
+#viewScreenColumn {
+
+}
+
+#mainViewscreenBox {
+    /* float: left; */
+    text-align: center;
+	border: 1px solid #5599FF;
+	/* margin: 10px; */
+    /* margin-left: 434px; */
+}
+
+#screenButtonRow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.screenButtonCols {
+    width: 20%;
+    min-width: 140px;
+    margin: 5px;
+}
+
+#screenBlinkyCol {
+    width: 10%;
+    min-width: 40px;
+    margin: 5px;
+    text-align: left;
+}
+
 /* // CONTENT AND SIDE PANEL */
-
-/* MEDIA STYLING FOR SMALL SCREENS */
-@media screen and (max-width: 400px) {
-	body {
-		font-family: verdana;
-		font-size: 12px;
-	}
-	h1 {
-		font-size: 26px;
-	}
-	h2 {
-		font-size: 22px;
-	}
-	h3 {
-		font-size: 18px;
-	}
-	.line-top, .line-bottom, .line-middle {
-		display: none;
-	}
-	.side-panel {
-		width: 100%;
-	}
-	.side-panel li {
-		height: 25px !important;
-		text-align: center;
-		margin: 0 !important;
-	}
-	.side-panel li div {
-		line-height: 20px !important;
-	}
-	.content, .upper-content {
-		width: 100% !important;
-		height: auto !important;
-	}
-	a.lcars-debug {
-		position: relative;
-		display: none !important;
-	}
-	div.lcars-debug {
-		position: relative;
-	}
-	.button {
-		font-size: 12px !important;
-	}
-	.B_titleR, .B_titleL {
-		font-size: 12px !important;
-		line-height: 35px;
-	}
+@media screen and (max-device-width: 639px) and (orientation: portrait) {
+    #lower-row {
+        flex-wrap: wrap;
+    }
 }
-/* // MEDIA STYLING FOR SMALL SCREENS */
+
+/* Otherwise it does not change on rotation! */
+@media screen and (orientation: landscape) {
+    #lower-row {
+        flex-wrap: nowrap;
+    }
+}
 
 /* BUTTON STYLING */
 .button {
-	display: block;
-	height: 30px;
-	width: 75px;
-	color: black;
-	padding: 0.3em 1em;
-	background-color: #ffcc00;
-	font-size: 20px;
-	line-height: 30px;
-	text-decoration: none;
-	text-align: right;
-	overflow: hidden;
-	cursor: pointer;
-	border: none;
+    display: block;
+    height: 30px;
+    width: 75px;
+    color: black;
+    padding: 0.3em 1em;
+    background-color: #ffcc00;
+    font-size: 20px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: right;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
 }
+
 .B_titleR {
-	display: block;
-	float: right;
-	height: 40px;
-	line-height: 40px;
-	color: #FFCC00;
-	font-size: 32px;
-	background: #000;
-	padding: 2px;
-	margin-top: -0.2em;
+    display: block;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    color: #FFCC00;
+    font-size: 32px;
+    background: #000;
+    padding: 2px;
+    margin-top: -0.2em;
 }
+
 .B_titleL {
-	display: block;
-	float: left;
-	height: 40px;
-	line-height: 40px;
-	color: #FFCC00;
-	font-size: 32px;
-	background: #000;
-	padding: 2px;
-	margin-top: -0.2em;
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    color: #FFCC00;
+    font-size: 32px;
+    background: #000;
+    padding: 2px;
+    margin-top: -0.2em;
 }
 
 .B_blankL {
-	color: #000;
-	background: #000;
-	display: block;
-	padding: 10px;
-	height: 40px;
-	margin-top: -0.3em;
-	margin-left: 0em;
-	width: 100%;
+    color: #000;
+    background: #000;
+    display: block;
+    padding: 10px;
+    height: 40px;
+    margin-top: -0.3em;
+    margin-left: 0;
+    width: 100%;
 }
+
 .B_blankR {
-	color: #000;
-	background: #000;
-	display: block;
-	padding: 10px;
-	height: 40px;
-	margin-top: -0.3em;
-	margin-left: -1em;
-	width: 100%;
+    color: #000;
+    background: #000;
+    display: block;
+    padding: 10px;
+    height: 40px;
+    margin-top: -0.3em;
+    margin-left: -1em;
+    width: 100%;
 }
+
 .RR {
-	border-radius: 20px;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
+    border-radius: 20px;
 }
+
 .SR {
-	-moz-border-radius-topright: 20px;
-	-moz-border-radius-bottomright: 20px;
-	-webkit-border-top-right-radius: 20px;
-	-webkit-border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
+
 .RS {
-	-moz-border-radius-topleft: 20px;
-	-moz-border-radius-bottomleft: 20px;
-	-webkit-border-top-left-radius: 20px;
-	-webkit-border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
+
 .L {
-	width: 100px;
+    width: 100px;
 }
+
 .B_title a:link, .B_title a:visited, .B_title a:hover {
-	color: #fc0;
-	text-decoration: none;
+    color: #fc0;
+    text-decoration: none;
 }
+
 .button a:link, .button a:visited, .button a:hover {
-	color: black;
-	text-decoration: none !important;
+    color: black;
+    text-decoration: none !important;
 }
+
 a.button:link, a.button:visited, a.button:hover {
-	color: black;
-	text-decoration: none !important;
+    color: black;
+    text-decoration: none !important;
 }
+
 /* // BUTTON STYLING */
 
 /* INPUT STYLING */
 input {
-	background: transparent;
-	color: white;
-	padding: 0;
-	margin: 0;
-	font-size: 25px;
-	border: 2px solid #ff9900;
-	font-family: lcars_font;
-	padding: 0 5px;
-	cursor: pointer;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
+    background: transparent;
+    color: white;
+    margin: 0;
+    font-size: 25px;
+    border: 2px solid #ff9900;
+    font-family: lcars_font;
+    padding: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
 }
+
 input:focus {
-	background: #ff9900;
-	color: black;
+    background: #ff9900;
+    color: black;
 }
+
 textarea {
-background: transparent;
-color: white;
-padding: 0;
-margin: 0;
-font-size: 25px;
-border: 2px solid #ff9900;
-font-family: lcars_font;
-padding: 0 5px;
-cursor: pointer;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
--o-border-radius: 5px;
-border-radius: 5px;
+    background: transparent;
+    color: white;
+    margin: 0;
+    font-size: 25px;
+    border: 2px solid #ff9900;
+    font-family: lcars_font;
+    padding: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
 }
+
 textarea:focus {
-	background: #ff9900;
-	color: black;
+    background: #ff9900;
+    color: black;
 }
+
 input[type=button], input[type=submit], button {
-	background: #ff9900;
-	font-family: lcars_font;
-	font-size: 25px;
-	height: 35px;
-	line-height: 35px;
-	border: none;
-	text-align: right;
-	color: black;
-	padding-left: 2em;
-	padding-right: 1em;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	-o-border-radius: 15px;
-	border-radius: 15px;
+    background: #ff9900;
+    font-family: lcars_font;
+    font-size: 25px;
+    height: 35px;
+    line-height: 35px;
+    border: none;
+    text-align: right;
+    color: black;
+    padding-left: 2em;
+    padding-right: 1em;
+    border-radius: 15px;
 }
+
 input[type=button]:hover, input[type=submit]:hover, button:hover {
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	-o-border-radius: 30px;
-	border-radius: 30px;
+    border-radius: 30px;
 }
+
 /* FOR JAVASCRIPT CHANGES */
 .lightUpButton {
-	background-color: #5599FF !important;
+    background-color: #5599FF !important;
 }
+
 .pressOnButton {
-	background-color: #000088 !important;
+    background-color: #000088 !important;
 }
+
 .highlight {
-	background-color: #cc6666;
-	padding: 2px;
-	/*	.rounded(10px); /* Not sure what this is for */
+    background-color: #cc6666;
+    padding: 2px;
+    /*	.rounded(10px); /* Not sure what this is for */
 }
+
 .highlight .highlight-inner {
-	background-color: #cc6666;
-	border: 2px solid black;
-	padding: 2px;
-	/*		.rounded(10px);  /* Not sure what this is for */
+    background-color: #cc6666;
+    border: 2px solid black;
+    padding: 2px;
+    /*		.rounded(10px);  /* Not sure what this is for */
 }
+
 /* Sliders */
 #travelSpeedSlider, #rotateSpeedSlider, #viewAngleSlider {
-	width: 380px;
-	margin: 0 0 20px 0;
-	font-size: 10px;
+    width: 380px;
+    margin: 0 0 20px 0;
+    font-size: 10px;
 }
+
 #travelSpeedSlider .ui-slider-range {
-	background: #3366FF;
+    background: #3366FF;
 }
+
 #travelSpeedSlider .ui-slider-handle {
-	border-color: #BBAA55;
+    border-color: #BBAA55;
 }
+
 #rotateSpeedSlider .ui-slider-range {
-	background: #0011EE;
+    background: #0011EE;
 }
+
 #rotateSpeedSlider .ui-slider-handle {
-	border-color: #BBAA55;
+    border-color: #BBAA55;
 }
+
 #viewAngleSlider .ui-slider-range {
-	background: #000088;
+    background: #000088;
 }
+
 #viewAngleSlider .ui-slider-handle {
-	border-color: #BBAA55;
+    border-color: #BBAA55;
 }
-#oldStatusLight {
-	width: 10px;
-	height: 10px;
-	background: #007927;
-	border-radius: 5px;
-	position: absolute;
-	margin: 10px;
-}
+
 #statusLight {
-	width: 10px;
-	height: 10px;
-	background: #007927;
-	border-radius: 5px;
-	position: absolute;
-	margin: 0px 25px 0px 25px;
+    width: 10px;
+    height: 10px;
+    background: #007927;
+    border-radius: 5px;
+    position: absolute;
+    margin: 0 25px 0 10px;
 }
+
 #statusLight2 {
-	width: 10px;
-	height: 10px;
-	background: #BB4411;
-	border-radius: 5px;
-	position: absolute;
-	margin: 0px 25px 0px 40px;
-}
-#vncviewer {
-	display: none;
+    width: 10px;
+    height: 10px;
+    background: #BB4411;
+    border-radius: 5px;
+    position: absolute;
+    margin: 0 25px 0 30px;
 }
