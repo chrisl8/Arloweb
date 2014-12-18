@@ -2,7 +2,7 @@ ArloWeb
 =======
 
 This is a web interface for my Arlobot robot.
-
+![Screenshot](screenshot.png?raw=true "ArloWeb")
 It requires both the ArloBot and the Metatron packages.
 
 You will need a web server running on your robot for this to work. I use XAMPP.
