@@ -41,6 +41,18 @@
     font-style: normal;
 }
 
+/*
+Klingon Font: http://www.evertype.com/fonts/tlh/
+Klingon Phrases: http://www.kasper-online.de/en/docs/startrek/klingon.htm
+Klingon Font UTF numbers: http://www.wazu.jp/gallery/Test_Klingon.html
+*/
+@font-face {
+    font-family: 'klingon';
+    src: url(//:) format('no404'), url('Klingon-pIqaD-HaSta.ttf') format('ttf'), url('Klingon-pIqaD-HaSta.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
     /* Text Selection turned off to make it more like a user interface!
      http://stackoverflow.com/questions/12315476/how-to-disable-selection-of-text-on-a-web-page */

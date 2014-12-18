@@ -80,11 +80,11 @@ if (!file_exists('arloweb.ini')) {
                                 href="https://github.com/chrisl8">https://github.com/chrisl8</a></span></td>
                 </tr>
                 <tr>
-                    <td>Forward:</td>
-                    <td><span id='distanceCenter'></span></td>
+                    <td>Clear Fwd:</td>
+                    <td><span id='safeToProceed'></span></td>
                     <td></td>
-                    <td>Heading:</td>
-                    <td><span id='Heading'></span></td>
+                    <td>Gyro:</td>
+                    <td><span id='gyroHeading'></span></td>
                     <td></td>
                     <td>Right Motor:</td>
                     <td><span id='rightMotor'>N/A</span></td>
@@ -95,39 +95,39 @@ if (!file_exists('arloweb.ini')) {
                                 Messer</a></span></td>
                 </tr>
                 <tr>
-                    <td>Left:</td>
-                    <td><span id='distanceLeft'></span></td>
+                    <td>Clear Rvs:</td>
+                    <td><span id='safeToRecede'></span></td>
                     <td></td>
                     <td>Speed:</td>
                     <td><span id='travelSpeed'></span></td>
                     <td></td>
-                    <td>tilt</td>
-                    <td><span id='tilt'></span></td>
+                    <td>Speed Lmt Fwd:</td>
+                    <td><span id='abd_speedLimit'></span></td>
                     <td></td>
                     <td>IP:</td>
                     <td><span id='ipEntry'><?php echo $_SERVER['SERVER_ADDR']; ?></span></td>
                 </tr>
                 <tr>
-                    <td>Right:</td>
-                    <td><span id='distanceRight'></span></td>
+                    <td>Escaping:</td>
+                    <td><span id='Escaping'></span></td>
                     <td></td>
                     <td>Rotation:</td>
                     <td><span id='rotateSpeed'></span></td>
                     <td></td>
-                    <td>View:</td>
-                    <td><span id='viewAngle'></span></td>
+                    <td>Speed Lmt Rvs:</td>
+                    <td><span id='abdR_speedLimit'></span></td>
                     <td></td>
                     <td>AC Power:</td>
                     <td><span id='acPower'>N/A</span></td>
                 </tr>
                 <tr>
-                    <td>connectRequested:</td>
-                    <td><span id='connectRequested'></span></td>
+                    <td style="font-family: klingon">&#xF8Db;&#xF8E5;&#xF8DF;&#xF8D3;&#xF8D0;&#xF8DF;</td>
+                    <td style="font-family: klingon"><span id='connectRequested'>&#xF8E9;&#xF8DD;&#xF8D6;</span></td>
                     <td></td>
-                    <td>connectedToNXT:</td>
+                    <td style="font-family: klingon">&#xF8DE;&#xF8E5;&#xF8D2;&#xF8De;&#xF8D0;&#xF8E9;&#xF8E9;&#xF8D4;&#xF8E9;</td>
                     <td><span id='connectedToNXT'></span></td>
                     <td></td>
-                    <td>Data Sent</td>
+                    <td style="font-family: klingon">&#xF8D6;&#xF8D9;&#xF8D8;&#xF8DD;&#xF8D9;</td>
                     <td><span id='dataSent'>N/A</span></td>
                     <td></td>
                     <td style="color: #FF9900">Action:</td>
