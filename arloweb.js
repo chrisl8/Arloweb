@@ -1,7 +1,7 @@
 /* https://github.com/chrisl8
 
    WARNING: Much of this code was unwittingly written by Google and Stack Overflow!
-   
+
    I apologize up front to felixnemis for referencing w3schools in some of my comments.
 
    Regarding JSLINT: <lectureToSelf>The point of LINT programs is to make sure you understand all of the output,
@@ -87,7 +87,7 @@ var linear_speed = 0.0, //TODO: Pass arguments instead of using global variables
    else it will get bored and stop. That is just how ROS works.
    Or perhaps it is a result of some setting, but ultimately it is best
    that it will quit if it doesn't get some updates from us periodically.
-   
+
    http://stackoverflow.com/questions/15505272/javascript-while-mousedown
    http://www.w3schools.com/js/js_timing.asp
 */
@@ -419,7 +419,7 @@ $(function () {
     });
 
     // Microphone Button 1:
-    
+
     var microphoneOn = false;
 
     $('#empty1Button-li').on("mousedown touchstart", function () {
@@ -924,6 +924,69 @@ var subscribeToUsbRelayStatus = function () {
     });
 };
 
+var subscribeToArlo_status = function () {
+    'use strict'; // http://www.w3schools.com/js/js_strict.asp
+    // This should serve as a template for all service subscriptions
+    if (!connectedToROS) {
+        return;
+    }// Make sure we are still connected. No need to recall myself as a new connect will do that.
+    // Make sure service exists:
+    var closeDeadConnectionTime;
+    closeDeadConnectionTime = setTimeout(closeDeadROSConnection, longDelay);
+    ros.getTopics(function (result) {// Unfortunately this can stall with no output!
+        clearTimeout(closeDeadConnectionTime);
+        if (!checkROSService(result.indexOf('/arlo_status'))) {
+            setTimeout(subscribeToArlo_status, longDelay); // Try MYSELF again when all topics are up!
+            return;
+        }
+
+        // THIS is where you put the subscription code:
+
+        setActionField("Arlo_status subscription");
+        var arlobot_arlo_status = new ROSLIB.Topic({
+            ros : ros,
+            name : '/arlo_status', // rostopic list
+            messageType : 'arlobot_msgs/arloStatus' // rostopic info <topic>
+        });
+
+        arlobot_arlo_status.subscribe(function (message) {
+            //console.log(message); // for debugging
+            if (message.safeToProceed === true) {
+                $('span#safeToProceed').html("True").css('color', '#5599ff');
+            } else {
+                $('span#safeToProceed').html("False").css('color', '#BB4411');
+            }
+            if (message.safeToRecede === true) {
+                $('span#safeToRecede').html("True").css('color', '#5599ff');
+            } else {
+                $('span#safeToRecede').html("False").css('color', '#BB4411');
+            }
+            if (message.Escaping === true) {
+                $('span#Escaping').html("True").css('color', '#BB4411');
+            } else {
+                $('span#Escaping').html("False").css('color', '#5599ff');
+            }
+            // TODO: Highlight/color if the diff is greater than X?
+            $('span#Heading').html((message.Heading).toFixed(3));
+            $('span#gyroHeading').html((message.gyroHeading).toFixed(3));
+            if (message.abd_speedLimit < 11) {
+                $('span#abd_speedLimit').html(message.abd_speedLimit).css('color', '#BB4411');
+            } else if (message.abd_speedLimit < 100) {
+                $('span#abd_speedLimit').html(message.abd_speedLimit).css('color', '#FF9900');
+            } else {
+                $('span#abd_speedLimit').html(message.abd_speedLimit).css('color', '#5599ff');
+            }
+            if (message.abdR_speedLimit < 11) {
+                $('span#abdR_speedLimit').html(message.abdR_speedLimit).css('color', '#BB4411');
+            } else if (message.abdR_speedLimit < 100) {
+                $('span#abdR_speedLimit').html(message.abdR_speedLimit).css('color', '#FF9900');
+            } else {
+                $('span#abdR_speedLimit').html(message.abdR_speedLimit).css('color', '#5599ff');
+            }
+        });
+    });
+};
+
 var getUsbRelayNumbers = function () {
     'use strict'; // http://www.w3schools.com/js/js_strict.asp
     // This should serve as a template for all service subscriptions
@@ -1051,7 +1114,8 @@ var startROSfunctions = function () {
     // Each topic function will do its own checking to see if the topic is live or not.
     setTimeout(subscribeToMetatron_idStatus, shortDelay); // Start with a slight delay
     setTimeout(subscribeToUsbRelayStatus, shortDelay * 2); // Increase delay with each to spread them out.
-    setTimeout(getUsbRelayNumbers, shortDelay * 3); // Start Service request functions too
+    setTimeout(subscribeToArlo_status, shortDelay * 3);
+    setTimeout(getUsbRelayNumbers, shortDelay * 4); // Start Service request functions too
 };
 
 var checkROSServices = function () {// Check for all of the VITAL startups
@@ -1062,33 +1126,33 @@ var checkROSServices = function () {// Check for all of the VITAL startups
     closeDeadConnectionTime = setTimeout(closeDeadROSConnection, shortDelay);
     ros.getServices(function (result) {// Unfortunately this can stall with no output!
         clearTimeout(closeDeadConnectionTime);
-        setActionField("Checking services");
+        setActionField("Checking topics");
         if (!checkROSService(result.indexOf("/rosapi/topics"))) {// This is the first service we need always!
             setTimeout(checkROSServices, longDelay);
             return;
         }
         // Check for all of the services we need before moving on!
-        setActionField("Checking services");
+        setActionField("Checking wake_screen");
         if (!checkROSService(result.indexOf('/metatron_id/wake_screen'))) {
             setTimeout(checkROSServices, longDelay);
             return;
         }
-        setActionField("Checking services");
+        setActionField("Checking toggle_camera");
         if (!checkROSService(result.indexOf('/metatron_id/toggle_camera'))) {
             setTimeout(checkROSServices, longDelay);
             return;
         }
-        setActionField("Checking services");
+        setActionField("Checking toggle_relay");
         if (!checkROSService(result.indexOf('/arlobot_usbrelay/toggle_relay'))) {
             setTimeout(checkROSServices, longDelay);
             return;
         }
-        setActionField("Checking services");
+        setActionField("Checking metatron_speaker");
         if (!checkROSService(result.indexOf('/metatron_speaker'))) {
             setTimeout(checkROSServices, longDelay);
             return;
         }
-        setActionField("Checking services");
+        setActionField("Checking find_relay");
         if (!checkROSService(result.indexOf('/arlobot_usbrelay/find_relay'))) {
             setTimeout(checkROSServices, longDelay);
             return;

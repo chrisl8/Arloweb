@@ -68,8 +68,8 @@ if (!file_exists('arloweb.ini')) {
                     <td style="width:15%; color: #FF9900">PROPELLER BOARD</td>
                     <td style="width:5%"></td>
                     <td style="width:5%"></td>
-                    <td style="width:10%; color: #FF9900">SETTINGS</td>
-                    <td style="width:12%"><span id='settings' style="color: #CCDDFF"></span></td>
+                    <td>Heading:</td>
+                    <td style="width:12%"><span id='Heading'></span></td>
                     <td style="width:3%"></td>
                     <td style="width:14%">Left Motor:</td>
                     <td style="width:10%"><span id='leftMotor'>N/A</span></td>
