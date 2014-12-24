@@ -127,8 +127,8 @@ if (!file_exists('arloweb.ini')) {
                     <td style="font-family: klingon">&#xF8DE;&#xF8E5;&#xF8D2;&#xF8De;&#xF8D0;&#xF8E9;&#xF8E9;&#xF8D4;&#xF8E9;</td>
                     <td><span id='connectedToNXT'></span></td>
                     <td></td>
-                    <td style="font-family: klingon">&#xF8D6;&#xF8D9;&#xF8D8;&#xF8DD;&#xF8D9;</td>
-                    <td><span id='dataSent'>N/A</span></td>
+                    <td>Limit Sensor:</td>
+                    <td><span id='minDistanceSensor'>N/A</span></td>
                     <td></td>
                     <td style="color: #FF9900">Action:</td>
                     <td><span id='action' style="color: #CCDDFF"></span></td>

@@ -983,6 +983,7 @@ var subscribeToArlo_status = function () {
             } else {
                 $('span#abdR_speedLimit').html(message.abdR_speedLimit).css('color', '#5599ff');
             }
+            $('span#minDistanceSensor').html(message.minDistanceSensor);
         });
     });
 };
