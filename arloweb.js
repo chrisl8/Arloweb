@@ -174,7 +174,7 @@ var updateConnectedButton = function () {
 };
 
 // BUTTON DEFINITIONS using jQuery and the LCARS functions
-$(function () {
+$( document ).ready(function () { // http://learn.jquery.com/using-jquery-core/document-ready/
     'use strict'; // http://www.w3schools.com/js/js_strict.asp
 
     // CONNECTION BUTTON
@@ -683,6 +683,10 @@ $(function () {
         $(this).removeClass("pressOnButton");
     });
 
+    // TODO: Should be pulled from somewhere else?
+    var maxTravelSpeed = 1.0;
+    var maxRotateSpeed = 4.0;
+
     // SPEED SLIDERS
     $(function () {
         var initialTravelValue = 0.1, initialRotateValue = 1.0;
@@ -690,7 +694,7 @@ $(function () {
         $("#travelSpeedSlider").slider({
             orientation : "horizontal",
             range : "min",
-            max : 1.0, // Should be pulled from somewhere else?
+            max : maxTravelSpeed,
             step : 0.1,
             value : initialTravelValue, // starting value
             slide : function (event, ui) {
@@ -700,7 +704,7 @@ $(function () {
         $("#rotateSpeedSlider").slider({
             orientation : "horizontal",
             range : "min",
-            max : 4.0, // Should be pulled from somewhere else?
+            max : maxRotateSpeed,
             step : 0.1,
             value : initialRotateValue, // starting value
             slide : function (event, ui) {
@@ -765,8 +769,49 @@ $(function () {
     .on("mouseup mouseout touchend", function () {
         $(this).removeClass("pressOnButton");
     });
+ // END Button Definitions here.
 
-}); // END Button Definitions here.
+// JOYSTICK on VIDEO IMAGE
+//console.log("touchscreen is", VirtualJoystick.touchScreenAvailable() ? "available" : "not available");
+var joystick    = new VirtualJoystick({
+    container   : document.getElementById('joyStickBox'),
+    mouseSupport    : false,
+    limitStickTravel : true
+});
+//var outputEl    = document.getElementById('result');
+joystick.addEventListener('touchStart', function(){
+    console.log('Joystick Start');
+    //outputEl.innerHTML  = '<b>Active:</b>';
+})
+joystick.addEventListener('touchEnd', function(){
+    console.log('Joystick End');
+    //outputEl.innerHTML  = '<b>In</b>active.';
+})
+ joystick.addEventListener('touchMove', function() {
+    console.log('dx:'+joystick.deltaX().toFixed(0)
+    + ' dy:'+joystick.deltaY().toFixed(0)
+    + ' linear: '
+    + (-joystick.deltaY().toFixed(0) / 100) * maxTravelSpeed
+    + ' rotate: '
+    + (joystick.deltaX().toFixed(0) / 100) * maxRotateSpeed
+    // + ' '
+    // + (joystick.right() ? ' right'  : '')
+    // + (joystick.up()    ? ' up'     : '')
+    // + (joystick.left()  ? ' left'   : '')
+    // + (joystick.down()  ? ' down'   : '')
+)
+//     outputEl.innerHTML  = '<b>Active:</b> '
+//     + ' dx:'+joystick.deltaX().toFixed(0)
+//     + ' - '
+//     + ' dy:'+joystick.deltaY().toFixed(0)
+//     + '<br/>Direction:'
+//     + (joystick.right() ? ' right'  : '')
+//     + (joystick.up()    ? ' up'     : '')
+//     + (joystick.left()  ? ' left'   : '')
+//     + (joystick.down()  ? ' down'   : '');
+ })
+
+}); // END Document Ready Section here.
 
 var closeDeadROSConnection = function () {
     'use strict'; // http://www.w3schools.com/js/js_strict.asp

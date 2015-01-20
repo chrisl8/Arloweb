@@ -30,6 +30,7 @@ if (!file_exists('arloweb.ini')) {
     <script type="text/javascript" src="eventemitter2.min.js"></script>
     <script type="text/javascript" src="roslib.min.js"></script>
     <script type="text/javascript" src="lcars.js"></script>
+    <script type="text/javascript" src="virtualjoystick.js"></script>
     <script type="text/javascript">
         var serverIP = '<?php echo $_SERVER['SERVER_ADDR']; ?>';
     </script>
@@ -227,8 +228,10 @@ if (!file_exists('arloweb.ini')) {
             </div>
             <!-- Logitech c615 resolution is 1280 x 720 (or HD if you want but I don't want to eat the bandwidth)
             http://www.logitech.com/en-us/product/hd-webcam-c615 -->
+            <div id="joyStickBox">
             <img id="videoFeed" alt="Video feed" src="http://<?php echo $_SERVER['SERVER_ADDR']; ?>/arloweb/xscreen.png"
                  style="width: 100%;">
+                 </div>
         </div>
     </div>
 </div>
