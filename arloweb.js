@@ -1029,6 +1029,37 @@ var subscribeToArlo_status = function() {
                 $('span#abdR_speedLimit').html(message.abdR_speedLimit).css('color', '#5599ff');
             }
             $('span#minDistanceSensor').html(message.minDistanceSensor);
+            $('span#robotBatteryLevel').html((message.robotBatteryLevel).toFixed(1) + "v");
+            if (message.robotBatteryLevel > 14) {
+                $('span#robotBatteryLevel').css('color', '#007927');
+            } else if (message.robotBatteryLevel > 13) {
+                $('span#robotBatteryLevel').css('color', '#FF9900');
+            } else if (message.robotBatteryLevel < 12) {
+                $('span#robotBatteryLevel').css('color', '#BB4411');
+            }
+            if (message.leftMotorPower) {
+                $('span#leftMotorPower').html("Yes");
+            } else {
+                $('span#leftMotorPower').html("no");
+            }
+            if (message.rightMotorPower) {
+                $('span#rightMotorPower').html("Yes");
+            } else {
+                $('span#rightMotorPower').html("no");
+            }
+            $('span#laptopBatteryPercent').html(message.laptopBatteryPercent + "%");
+            if (message.laptopBatteryPercent === 100) {
+                $('span#laptopBatteryPercent').css('color', '#007927');
+            } else if (message.laptopBatteryPercent < 50) {
+                $('span#laptopBatteryPercent').css('color', '#FF9900');
+            } else if (message.laptopBatteryPercent < 20) {
+                $('span#laptopBatteryPercent').css('color', '#BB4411');
+            }
+            if (message.acPower) {
+                $('span#acPower').html("Yes").css('color', '#007927');
+            } else {
+                $('span#acPower').html("no").css('color', '#5599ff');
+            }
         });
     });
 };

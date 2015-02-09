@@ -72,13 +72,11 @@ if (!file_exists('arloweb.ini')) {
                     <td>Heading:</td>
                     <td style="width:12%"><span id='Heading'></span></td>
                     <td style="width:3%"></td>
-                    <td style="width:14%">Left Motor:</td>
+                    <td style="width:14%">LEFT MOTOR -Relay:</td>
                     <td style="width:10%"><span id='leftMotor'>N/A</span></td>
                     <td style="width:1%"></td>
-                    <td style="width:15%; color: #FF9900">Source:</td>
-                    <td style="width:10%; color: #FF9900; white-space: nowrap;"><span id='serverTime'
-                                                                                      style="color: #FF9900"><a
-                                href="https://github.com/chrisl8">https://github.com/chrisl8</a></span></td>
+                    <td style="width:15%">-Power:</td>
+                    <td style="width:10%"><span id='leftMotorPower'>N/A</span></td>
                 </tr>
                 <tr>
                     <td>Clear Fwd:</td>
@@ -87,13 +85,11 @@ if (!file_exists('arloweb.ini')) {
                     <td>Gyro:</td>
                     <td><span id='gyroHeading'></span></td>
                     <td></td>
-                    <td>Right Motor:</td>
+                    <td>RIGHT MOTOR -Relay:</td>
                     <td><span id='rightMotor'>N/A</span></td>
                     <td></td>
-                    <td style="color: #FF9900">LCARS:</td>
-                    <td><span id='yourTime' style="color: #FF9900"><a
-                                href="http://www.siriustrader.com/LCARS/jquery.lcars-master/">Template by Josh
-                                Messer</a></span></td>
+                    <td>-Power:</td>
+                    <td><span id='rightMotorPower'>N/A</span></td>
                 </tr>
                 <tr>
                     <td>Clear Rvs:</td>
@@ -122,11 +118,11 @@ if (!file_exists('arloweb.ini')) {
                     <td><span id='acPower'>N/A</span></td>
                 </tr>
                 <tr>
-                    <td style="font-family: klingon">&#xF8Db;&#xF8E5;&#xF8DF;&#xF8D3;&#xF8D0;&#xF8DF;</td>
-                    <td style="font-family: klingon"><span id='connectRequested'>&#xF8E9;&#xF8DD;&#xF8D6;</span></td>
+                    <td>SLA Voltage:</td>
+                    <td><span id='robotBatteryLevel'>N/A</span></td>
                     <td></td>
-                    <td style="font-family: klingon">&#xF8DE;&#xF8E5;&#xF8D2;&#xF8De;&#xF8D0;&#xF8E9;&#xF8E9;&#xF8D4;&#xF8E9;</td>
-                    <td><span id='connectedToNXT'></span></td>
+                    <td>Laptop Battery:</td>
+                    <td><span id='laptopBatteryPercent'>N/A</span></td>
                     <td></td>
                     <td>Limit Sensor:</td>
                     <td><span id='minDistanceSensor'>N/A</span></td>
