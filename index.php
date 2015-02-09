@@ -196,11 +196,6 @@ if (!file_exists('arloweb.ini')) {
             <textarea name="speak" id="speak" rows="2" cols="40"
                       placeholder="Enter text to speak here . . ."></textarea><br/>
             <a id="speakButton">SPEAK</a>
-
-            <div id="microphone" style="display: block;">
-                <embed type="application/x-vlc-plugin" id="robotMicrophone" autoplay="yes" loop="no" height="40"
-                       width="320" target="rtp://234.5.5.5:1234">
-            </div>
         </div>
     </div>
     <div id="viewScreenColumn">
