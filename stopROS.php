@@ -11,7 +11,7 @@ $ini_array = parse_ini_file("arloweb.ini");
 #print_r($ini_array);
 #echo("{$ini_array['scriptFolder']}<br/>");
 #echo("{$ini_array['rosUser']}<br/>");*/
-shell_exec("{$ini_array['scriptFolder']}/stubStopper.sh {$ini_array['scriptFolder']} {$ini_array['rosUser']}");
+shell_exec("nohup {$ini_array['scriptFolder']}/stubStopper.sh {$ini_array['scriptFolder']} {$ini_array['rosUser']} &");
 echo 'Stopping ROS';
 } else {
 echo 'ERROR: arloweb.ini not found . . . ';
