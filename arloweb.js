@@ -1052,7 +1052,8 @@ var subscribeToArlo_status = function() {
                 $('span#laptopBatteryPercent').css('color', '#007927');
             } else if (message.laptopBatteryPercent < 50) {
                 $('span#laptopBatteryPercent').css('color', '#FF9900');
-            } else if (message.laptopBatteryPercent < 20) {
+            }
+            if (message.laptopBatteryPercent < 20) {
                 $('span#laptopBatteryPercent').css('color', '#BB4411');
             }
             if (message.acPower) {
