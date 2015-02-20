@@ -13,5 +13,6 @@ source ~/metatron/devel/setup.bash
 if [ $? -ne 0 ]
 then
 #/opt/ros/indigo/bin/roslaunch metatron_id metatron_id.launch &
-~/metatron/scripts/start-metatron.sh &
+~/metatron/scripts/start-metatron.sh
+exit $?
 fi
