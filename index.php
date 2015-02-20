@@ -21,7 +21,7 @@ if (!file_exists('arloweb.ini')) {
     <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="lcars.css"/>
     <link href="jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
-    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="jquery-ui-1.10.4.custom.min.js"></script>
     <!-- http://wiki.ros.org/roslibjs/Tutorials/BasicRosFunctionality -->
     <!-- <script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
