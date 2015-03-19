@@ -783,11 +783,11 @@ $(document).ready(function() {
     joystick.addEventListener('touchStart', function() {
         console.log('Joystick Start');
         //outputEl.innerHTML  = '<b>Active:</b>';
-    })
+    });
     joystick.addEventListener('touchEnd', function() {
         console.log('Joystick End');
         //outputEl.innerHTML  = '<b>In</b>active.';
-    })
+    });
     joystick.addEventListener('touchMove', function() {
         console.log('dx:' + joystick.deltaX().toFixed(0) + ' dy:' + joystick.deltaY().toFixed(0) + ' linear: ' + (-joystick.deltaY().toFixed(0) / 100) * maxTravelSpeed + ' rotate: ' + (joystick.deltaX().toFixed(0) / 100) * maxRotateSpeed
                 // + ' '
@@ -795,7 +795,7 @@ $(document).ready(function() {
                 // + (joystick.up()    ? ' up'     : '')
                 // + (joystick.left()  ? ' left'   : '')
                 // + (joystick.down()  ? ' down'   : '')
-            )
+            );
             //     outputEl.innerHTML  = '<b>Active:</b> '
             //     + ' dx:'+joystick.deltaX().toFixed(0)
             //     + ' - '
@@ -805,7 +805,7 @@ $(document).ready(function() {
             //     + (joystick.up()    ? ' up'     : '')
             //     + (joystick.left()  ? ' left'   : '')
             //     + (joystick.down()  ? ' down'   : '');
-    })
+    });
 
 }); // END Document Ready Section here.
 
