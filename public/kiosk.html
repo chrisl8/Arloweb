@@ -54,7 +54,7 @@
                 $('#go').css('display', 'none');
             }
         };
-        var getStatus = function() {
+        // Grab status with an empty post when page loads
         $.ajax({
                 type: "POST",
                 url: backEndURL,
@@ -63,9 +63,6 @@
                 cache: false
             })
             .done(statusUpdate);
-        };
-        // Grab status with an empty post when page loads
-        getStatus();
         var sendRequestToRobot = function(text) {
             // Converting this to json
             $.ajax({
@@ -78,7 +75,7 @@
                     }),
                     cache: false
                 })
-                .done(getStatus);
+                .done(statusUpdate);
         };
         $('button').click(function() {
             // Just send the button's id as the request text

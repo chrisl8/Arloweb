@@ -189,7 +189,7 @@ $(document).ready(function() {
             } else {
                 $(this).removeClass("lightUpButton");
                 $(this).addClass("pressOnButton");
-                $.get('startROS.php');
+                $.get('startROS');
                 console.log("tail -f /opt/lampp/logs/error_log # To see what ROS is doing.");
                 setActionField("ROS Startup");
                 pleaseWait = true;
