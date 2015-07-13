@@ -1,6 +1,6 @@
 Deprecated!
 ===========
-Please see the [ArloBot Repository](https://github.com/chrisl8/ArloBot) Rep instead.
+Please see the [ArloBot Repository](https://github.com/chrisl8/ArloBot) instead.
 
 This is only left here so that I can reference old code. Everything here is now moved to [ArloBot](https://github.com/chrisl8/ArloBot), and this will not function any longer.
 
